@@ -1,0 +1,1962 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 1,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 30,
+            "axisSoftMin": 15,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 43,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "temp_c",
+          "legendFormat": "Temperature °C {{sensor}} - {{location}} {{addr}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature - $temp_c °C ",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Relative Humidity",
+            "axisPlacement": "auto",
+            "axisSoftMax": 70,
+            "axisSoftMin": 40,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "humidity_percent",
+          "legendFormat": "Humidity % {{sensor}} - {{location}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Humidity - $humidity %",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "orange",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Barometric Pressure",
+            "axisPlacement": "auto",
+            "axisSoftMax": 89,
+            "axisSoftMin": 87,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pressurekpa"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "pressure_hpa / 10",
+          "legendFormat": "Pressure hpa {{sensor}} - {{location}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Barometric Pressure kPa",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "id": 14,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(voltage_v - .581)/1.6 * 100",
+          "instant": true,
+          "legendFormat": "% of tank full",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(voltage_v[5m])",
+          "hide": true,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Water Tank Pressure (V to %}",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 100,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 4,
+        "y": 9
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "(voltage_v - .581)/1.6 * 100",
+          "legendFormat": "% of tank full",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(voltage_v[5m])",
+          "hide": true,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Water Tank Pressure (V to %}",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 32,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "custom.drawStyle",
+                "value": "bars"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "smooth"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 9
+      },
+      "id": 2,
+      "interval": "30s",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "increase(rain_mm_total[$__interval]) > 0",
+          "hide": false,
+          "legendFormat": "Rainfall mm accumulation",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(rain_mm_total[30s])[$__range])",
+          "hide": true,
+          "legendFormat": "Rainfall mm accumulation",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Rain Precipitation (mm)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 0,
+        "y": 17
+      },
+      "id": 5,
+      "options": {
+        "apparentWindColor": "red",
+        "apparentWindDirField": "wind_dir_deg",
+        "apparentWindSpdField": "",
+        "apparentWindSpdUom": "kts",
+        "bezelColor": "transparent",
+        "dialColor": "#00000000",
+        "headingField": "",
+        "needleColor": "red",
+        "needlePng": "",
+        "needleSvg": "",
+        "needleType": "arrow",
+        "rotationMode": "rotate-needle",
+        "showHeadingValue": false,
+        "showLabels": true,
+        "tailColor": "gray",
+        "textColor": "text",
+        "trueWindColor": "blue",
+        "trueWindDirField": "",
+        "trueWindSpdField": "",
+        "trueWindSpdUom": "kts"
+      },
+      "pluginVersion": "2.1.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "wind_dir_deg",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Wind Direction",
+      "type": "oceandatatools-compass-panel"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 348.75,
+                "result": {
+                  "index": 1,
+                  "text": "N"
+                },
+                "to": 390
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "index": 2,
+                  "text": "N"
+                },
+                "to": 11.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 11.25,
+                "result": {
+                  "index": 3,
+                  "text": "NNE"
+                },
+                "to": 33.75
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 33.75,
+                "result": {
+                  "index": 4,
+                  "text": "NE"
+                },
+                "to": 56.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 56.25,
+                "result": {
+                  "index": 5,
+                  "text": "ENE"
+                },
+                "to": 78.75
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 78.75,
+                "result": {
+                  "index": 6,
+                  "text": "E"
+                },
+                "to": 101.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 101.25,
+                "result": {
+                  "index": 7,
+                  "text": "ESE"
+                },
+                "to": 123.75
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 123.75,
+                "result": {
+                  "index": 8,
+                  "text": "SE"
+                },
+                "to": 146.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 146.25,
+                "result": {
+                  "index": 9,
+                  "text": "SSE"
+                },
+                "to": 168.75
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 168.75,
+                "result": {
+                  "index": 10,
+                  "text": "S"
+                },
+                "to": 191.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 191.25,
+                "result": {
+                  "index": 11,
+                  "text": "SSW"
+                },
+                "to": 213.75
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 213.75,
+                "result": {
+                  "index": 12,
+                  "text": "SW"
+                },
+                "to": 236.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 236.25,
+                "result": {
+                  "index": 13,
+                  "text": "WSW"
+                },
+                "to": 258.75
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 258.75,
+                "result": {
+                  "index": 14,
+                  "text": "W"
+                },
+                "to": 281.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 281.25,
+                "result": {
+                  "index": 15,
+                  "text": "WNW"
+                },
+                "to": 303.75
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 303.75,
+                "result": {
+                  "index": 16,
+                  "text": "NW"
+                },
+                "to": 326.25
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 326.25,
+                "result": {
+                  "index": 17,
+                  "text": "NNW"
+                },
+                "to": 348.75
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 2,
+        "y": 17
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "wind_dir_deg",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Wind Direction",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "avg_over_time(wind_kmh[$__range])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Avg Windspeed (km/h)",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "max_over_time(wind_kmh[$__range])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Max Windspeed (km/h)",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "purple",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 10,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 4,
+        "y": 17
+      },
+      "id": 4,
+      "interval": "15s",
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "max_over_time(wind_kmh[$__interval])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Wind speed km/h ({{mfg}})",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "wind_kmh",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Wind speed km/h",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "transparent",
+                  "index": 0,
+                  "text": "No wind"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "No wind or sensor malfunction",
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsZero",
+                "value": 0
+              }
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 17
+      },
+      "id": 13,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(sum by (location) ((wind_dir_deg == 270) - 270))",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 0) - 0))) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "N",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 22.5) - 22.5)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "NNE",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 45) - 45)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "NE",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 67.5) - 67.5)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "ENE",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 90) - 90)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "E",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 112.5) - 112.5)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "ESE",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 135) - 135)) > 0 ",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "SE",
+          "range": true,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 157.5) - 157.5)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "SSE",
+          "range": true,
+          "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 180) - 180)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "S",
+          "range": true,
+          "refId": "J"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 202.5) - 202.5)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "SSW",
+          "range": true,
+          "refId": "K"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 225) - 225)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "SW",
+          "range": true,
+          "refId": "L"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 247.5) - 247.5)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WSW",
+          "range": true,
+          "refId": "M"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 270) - 270)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "W",
+          "range": true,
+          "refId": "N"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 292.5) - 292.5)) > 0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WNW",
+          "range": true,
+          "refId": "O"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 315) - 315)) > 0 ",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "NW",
+          "range": true,
+          "refId": "P"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 337.5) - 337.5))",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "NNW",
+          "range": true,
+          "refId": "Q"
+        }
+      ],
+      "title": "Wind Direction",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "{sensor=\"sps30\",__name__!~\"particle_size_um|nc_count\",size!=\"\"}",
+          "hide": true,
+          "legendFormat": "pm - {{size}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "{sensor=\"sps30\",__name__=\"nc_count\"}",
+          "hide": false,
+          "legendFormat": "pm - {{size}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Particulate Matter (Air Quality) %",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "{sensor=\"sps30\",__name__=~\"nc_count\"}",
+          "legendFormat": "pm - {{size}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Particulate Matter (Air Quality) Counts",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cfdp4vfp6uxoge"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "inspect": false
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "red",
+                        "index": 1,
+                        "text": "Down"
+                      },
+                      "1": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "Up"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "red",
+                        "index": 0,
+                        "text": "Down"
+                      },
+                      "1": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "Up"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ambient"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 177
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 178
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Max"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 175
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 0,
+        "y": 33
+      },
+      "id": 11,
+      "options": {
+        "cellHeight": "sm",
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "temp_c",
+          "instant": false,
+          "legendFormat": "{{location}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sensor_up{sensor=\"bme280\"}",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "bme280 status",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sensor_up{sensor=\"sht30\"}",
+          "hide": true,
+          "instant": true,
+          "legendFormat": "sht30 status",
+          "range": false,
+          "refId": "C"
+        }
+      ],
+      "title": "Temperature °C",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "labelsToFields": false,
+            "reducers": [
+              "min",
+              "max",
+              "mean",
+              "last"
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "preload": true,
+  "refresh": "5s",
+  "schemaVersion": 42,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "18.8",
+          "value": "18.8"
+        },
+        "definition": "query_result(temp_c{location=\"ambient\"})",
+        "includeAll": false,
+        "name": "temp_c",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result(temp_c{location=\"ambient\"})",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "temp_c{.*}.([0-9]+\\.[0-9]).*",
+        "staticOptions": [],
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "definition": "query_result(humidity_percent{location=\"ambient\"})",
+        "includeAll": false,
+        "name": "humidity",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result(humidity_percent{location=\"ambient\"})",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "humidity_percent{.*}.([0-9]+\\.[0-9]).*",
+        "staticOptions": [],
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Weather",
+  "uid": "ads7qvx",
+  "version": 109
+}
