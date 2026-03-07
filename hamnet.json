@@ -18,14 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 1,
   "links": [],
   "liveNow": true,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -112,7 +111,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
@@ -132,7 +131,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -218,7 +217,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
@@ -238,7 +237,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -325,7 +324,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
@@ -345,7 +344,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -398,7 +397,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
@@ -428,7 +427,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -521,7 +520,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
@@ -549,7 +548,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -660,12 +659,11 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
           "expr": "increase(rain_mm_total[$__interval]) > 0",
-          "hide": false,
           "legendFormat": "Rainfall mm accumulation",
           "range": true,
           "refId": "A"
@@ -689,7 +687,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {},
@@ -742,7 +740,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -1017,7 +1015,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
@@ -1037,7 +1035,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "avg_over_time(wind_kmh[$__range])",
-          "hide": false,
           "instant": false,
           "legendFormat": "Avg Windspeed (km/h)",
           "range": true,
@@ -1051,7 +1048,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "max_over_time(wind_kmh[$__range])",
-          "hide": false,
           "instant": false,
           "legendFormat": "Max Windspeed (km/h)",
           "range": true,
@@ -1064,7 +1060,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -1148,12 +1144,11 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
           "expr": "max_over_time(wind_kmh[$__interval])",
-          "hide": false,
           "interval": "",
           "legendFormat": "Wind speed km/h ({{mfg}})",
           "range": true,
@@ -1179,7 +1174,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -1258,7 +1253,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
@@ -1278,7 +1273,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "(sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 0) - 0))) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "N",
           "range": true,
@@ -1292,7 +1286,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 22.5) - 22.5)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "NNE",
           "range": true,
@@ -1306,7 +1299,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 45) - 45)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "NE",
           "range": true,
@@ -1320,7 +1312,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 67.5) - 67.5)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "ENE",
           "range": true,
@@ -1334,7 +1325,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 90) - 90)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "E",
           "range": true,
@@ -1348,7 +1338,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 112.5) - 112.5)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "ESE",
           "range": true,
@@ -1362,7 +1351,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 135) - 135)) > 0 ",
-          "hide": false,
           "instant": false,
           "legendFormat": "SE",
           "range": true,
@@ -1376,7 +1364,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 157.5) - 157.5)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "SSE",
           "range": true,
@@ -1390,7 +1377,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 180) - 180)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "S",
           "range": true,
@@ -1404,7 +1390,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 202.5) - 202.5)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "SSW",
           "range": true,
@@ -1418,7 +1403,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 225) - 225)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "SW",
           "range": true,
@@ -1432,7 +1416,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 247.5) - 247.5)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "WSW",
           "range": true,
@@ -1446,7 +1429,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 270) - 270)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "W",
           "range": true,
@@ -1460,7 +1442,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 292.5) - 292.5)) > 0",
-          "hide": false,
           "instant": false,
           "legendFormat": "WNW",
           "range": true,
@@ -1474,7 +1455,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 315) - 315)) > 0 ",
-          "hide": false,
           "instant": false,
           "legendFormat": "NW",
           "range": true,
@@ -1488,7 +1468,6 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (location) (wind_kmh) + (sum by (location) ((wind_dir_deg == 337.5) - 337.5))",
-          "hide": false,
           "instant": false,
           "legendFormat": "NNW",
           "range": true,
@@ -1501,7 +1480,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -1579,7 +1558,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
@@ -1596,7 +1575,6 @@
           },
           "editorMode": "code",
           "expr": "{sensor=\"sps30\",__name__=\"nc_count\"}",
-          "hide": false,
           "legendFormat": "pm - {{size}}",
           "range": true,
           "refId": "B"
@@ -1608,7 +1586,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -1686,7 +1664,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
@@ -1702,7 +1680,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfdp4vfp6uxoge"
+        "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
         "defaults": {
@@ -1839,7 +1817,7 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "12.3.3",
+      "pluginVersion": "12.4.0",
       "targets": [
         {
           "datasource": {
@@ -1911,8 +1889,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "18.8",
-          "value": "18.8"
+          "text": "",
+          "value": ""
         },
         "definition": "query_result(temp_c{location=\"ambient\"})",
         "includeAll": false,
@@ -1925,6 +1903,7 @@
         },
         "refresh": 2,
         "regex": "temp_c{.*}.([0-9]+\\.[0-9]).*",
+        "regexApplyTo": "value",
         "staticOptions": [],
         "type": "query"
       },
@@ -1945,6 +1924,7 @@
         },
         "refresh": 2,
         "regex": "humidity_percent{.*}.([0-9]+\\.[0-9]).*",
+        "regexApplyTo": "value",
         "staticOptions": [],
         "type": "query"
       }
@@ -1958,5 +1938,6 @@
   "timezone": "browser",
   "title": "Weather",
   "uid": "ads7qvx",
-  "version": 109
+  "version": 1,
+  "weekStart": ""
 }
