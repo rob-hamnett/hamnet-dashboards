@@ -119,13 +119,13 @@
             "uid": "cfdp4vfp6uxoge"
           },
           "editorMode": "code",
-          "expr": "temp_c",
-          "legendFormat": "Temperature °C {{sensor}} - {{location}} {{addr}}",
+          "expr": "(temp_c * (9/5))+32",
+          "legendFormat": "Temperature °F {{sensor}} - {{location}} {{addr}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Temperature - $temp_c °C ",
+      "title": "Temperature - $temp_c °F",
       "type": "timeseries"
     },
     {
@@ -149,7 +149,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 5,
+            "fillOpacity": 20,
             "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
@@ -256,7 +256,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 5,
+            "fillOpacity": 20,
             "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
@@ -591,6 +591,7 @@
             }
           },
           "mappings": [],
+          "noValue": "No Rain",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1931,13 +1932,13 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Weather",
   "uid": "ads7qvx",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
