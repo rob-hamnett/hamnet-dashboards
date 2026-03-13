@@ -402,7 +402,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "(voltage_v - .581)/1.6 * 100",
+          "expr": "(voltage_v - .52)/1 * 100 > 0",
           "instant": true,
           "legendFormat": "% of tank full",
           "range": false,
@@ -444,7 +444,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -524,7 +524,7 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "(voltage_v - .581)/1.6 * 100",
+          "expr": "(voltage_v - .52)/1 * 100",
           "legendFormat": "% of tank full",
           "range": true,
           "refId": "A"
@@ -612,6 +612,25 @@
               {
                 "id": "custom.drawStyle",
                 "value": "bars"
+              },
+              {
+                "id": "custom.axisSoftMin",
+                "value": 0
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 0.279
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#605c5ce6",
+                  "mode": "fixed"
+                }
               }
             ]
           },
@@ -624,11 +643,7 @@
               {
                 "id": "custom.lineStyle",
                 "value": {
-                  "dash": [
-                    10,
-                    10
-                  ],
-                  "fill": "dash"
+                  "fill": "solid"
                 }
               },
               {
@@ -675,8 +690,7 @@
             "uid": "cfdp4vfp6uxoge"
           },
           "editorMode": "code",
-          "expr": "sum(increase(rain_mm_total[30s])[$__range])",
-          "hide": true,
+          "expr": "sum_over_time(rain_mm_total[30s])[$__range]",
           "legendFormat": "Rainfall mm accumulation",
           "range": true,
           "refId": "B"
@@ -1075,7 +1089,6 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 10,
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
@@ -1592,100 +1605,6 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 25
-      },
-      "id": 9,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.4.0",
-      "targets": [
-        {
-          "editorMode": "code",
-          "expr": "{sensor=\"sps30\",__name__=~\"nc_count\"}",
-          "legendFormat": "pm - {{size}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Particulate Matter (Air Quality) Counts",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
             "mode": "thresholds"
           },
           "custom": {
@@ -1807,10 +1726,10 @@
         ]
       },
       "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 0,
-        "y": 33
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 25
       },
       "id": 11,
       "options": {
@@ -1890,8 +1809,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "",
-          "value": ""
+          "text": "17.2",
+          "value": "17.2"
         },
         "definition": "query_result(temp_c{location=\"ambient\"})",
         "includeAll": false,
@@ -1911,8 +1830,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "",
-          "value": ""
+          "text": "98.4",
+          "value": "98.4"
         },
         "definition": "query_result(humidity_percent{location=\"ambient\"})",
         "includeAll": false,
@@ -1932,13 +1851,13 @@
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Weather",
   "uid": "ads7qvx",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
