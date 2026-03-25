@@ -1461,86 +1461,86 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "continuous-GrYlRd"
           },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "transparent",
+                  "index": 0,
+                  "text": "No wind"
+                }
+              },
+              "type": "value"
             }
-          },
-          "mappings": [],
+          ],
+          "noValue": "No wind or sensor malfunction",
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
-                "color": "green",
+                "color": "transparent",
                 "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsZero",
+                "value": 0
+              }
+            },
+            "properties": []
+          }
+        ]
       },
       "gridPos": {
         "h": 9,
-        "w": 10,
+        "w": 11,
         "x": 0,
         "y": 25
       },
-      "id": 8,
+      "id": 16,
       "options": {
+        "displayMode": "gradient",
         "legend": {
           "calcs": [],
           "displayMode": "list",
           "placement": "bottom",
-          "showLegend": true
+          "showLegend": false
         },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        }
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
       },
       "pluginVersion": "12.4.0",
       "targets": [
         {
           "editorMode": "code",
-          "expr": "{sensor=\"sps30\",__name__!~\"particle_size_um|nc_count\",size!=\"\"}",
+          "exemplar": false,
+          "expr": "(sum by (location) ((wind_dir_deg == 270) - 270))",
           "hide": true,
-          "legendFormat": "pm - {{size}}",
+          "instant": false,
+          "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         },
@@ -1550,14 +1550,211 @@
             "uid": "cfdp4vfp6uxoge"
           },
           "editorMode": "code",
-          "expr": "{sensor=\"sps30\",__name__=\"nc_count\"}",
-          "legendFormat": "pm - {{size}}",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 0) - 0)[$__range])",
+          "instant": false,
+          "legendFormat": "N",
           "range": true,
           "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 22.5) - 22.5)[$__range])",
+          "instant": false,
+          "legendFormat": "NNE",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 45) - 45)[$__range])",
+          "instant": false,
+          "legendFormat": "NE",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 67.5) - 67.5)[$__range])",
+          "instant": false,
+          "legendFormat": "ENE",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 90) - 90)[$__range])",
+          "instant": false,
+          "legendFormat": "E",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 112.5) - 112.5)[$__range])",
+          "instant": false,
+          "legendFormat": "ESE",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 135) - 135)[$__range])",
+          "instant": false,
+          "legendFormat": "SE",
+          "range": true,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 157.5) - 157.5)[$__range])",
+          "instant": false,
+          "legendFormat": "SSE",
+          "range": true,
+          "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 180) - 180)[$__range])",
+          "instant": false,
+          "legendFormat": "S",
+          "range": true,
+          "refId": "J"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 202.5) - 202.5)[$__range])",
+          "instant": false,
+          "legendFormat": "SSW",
+          "range": true,
+          "refId": "K"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 225) - 225)[$__range])",
+          "instant": false,
+          "legendFormat": "SW",
+          "range": true,
+          "refId": "L"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 247.5) - 247.5)[$__range])",
+          "instant": false,
+          "legendFormat": "WSW",
+          "range": true,
+          "refId": "M"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 270) - 270)[$__range])",
+          "instant": false,
+          "legendFormat": "W",
+          "range": true,
+          "refId": "N"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 292.5) - 292.5)[$__range])",
+          "instant": false,
+          "legendFormat": "WNW",
+          "range": true,
+          "refId": "O"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 315) - 315)[$__range])",
+          "instant": false,
+          "legendFormat": "NW",
+          "range": true,
+          "refId": "P"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 337.5) - 337.5)[$__range])",
+          "instant": false,
+          "legendFormat": "NNW",
+          "range": true,
+          "refId": "Q"
         }
       ],
-      "title": "Particulate Matter (Air Quality) %",
-      "type": "timeseries"
+      "title": "Wind Direction",
+      "type": "bargauge"
     },
     {
       "datasource": {
@@ -1620,8 +1817,8 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 14,
-        "x": 10,
+        "w": 13,
+        "x": 11,
         "y": 25
       },
       "id": 13,
@@ -1864,6 +2061,112 @@
       ],
       "title": "Wind Direction",
       "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P4169E866C3094E38"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 34
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "{sensor=\"sps30\",__name__!~\"particle_size_um|nc_count\",size!=\"\"}",
+          "hide": true,
+          "legendFormat": "pm - {{size}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cfdp4vfp6uxoge"
+          },
+          "editorMode": "code",
+          "expr": "{sensor=\"sps30\",__name__=\"nc_count\"}",
+          "legendFormat": "pm - {{size}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Particulate Matter (Air Quality) %",
+      "type": "timeseries"
     }
   ],
   "preload": true,
@@ -1875,8 +2178,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "12.96",
-          "value": "12.96"
+          "text": "13.24",
+          "value": "13.24"
         },
         "datasource": {
           "type": "prometheus",
@@ -1926,8 +2229,8 @@
       },
       {
         "current": {
-          "text": "55.328",
-          "value": "55.328"
+          "text": "55.832",
+          "value": "55.832"
         },
         "datasource": {
           "type": "prometheus",
@@ -1949,8 +2252,8 @@
       },
       {
         "current": {
-          "text": "55.32",
-          "value": "55.32"
+          "text": "55.83",
+          "value": "55.83"
         },
         "datasource": {
           "type": "prometheus",
