@@ -682,6 +682,61 @@
                 "value": "smooth"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tips"
+            },
+            "properties": [
+              {
+                "id": "custom.drawStyle",
+                "value": "bars"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "hidden"
+              },
+              {
+                "id": "custom.axisSoftMin",
+                "value": 0
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 0.28
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "Rainfall cumulative accumulation",
+                  "Tips"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
           }
         ]
       },
@@ -721,13 +776,30 @@
             "uid": "cfdp4vfp6uxoge"
           },
           "editorMode": "code",
-          "expr": "sum_over_time(rain_mm_total[30s])[$__range]",
+          "expr": "(rain_mm_total[30s])",
           "legendFormat": "Rainfall mm accumulation",
           "range": true,
           "refId": "B"
         }
       ],
       "title": "Rain Precipitation (mm)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Rainfall cumulative accumulation",
+            "cumulative": {
+              "field": "Tips",
+              "reducer": "sum"
+            },
+            "mode": "cumulativeFunctions",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -1166,7 +1238,22 @@
           },
           "unit": "velocitykmh"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "palette-classic"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -1198,7 +1285,7 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "max_over_time(wind_kmh[$__interval])",
+          "expr": "(wind_kmh[$__interval])",
           "interval": "",
           "legendFormat": "Wind Speed",
           "range": true,
@@ -1216,6 +1303,18 @@
           "legendFormat": "__auto",
           "range": true,
           "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P4169E866C3094E38"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(wind_kmh[30m])",
+          "interval": "",
+          "legendFormat": "30m average",
+          "range": true,
+          "refId": "C"
         }
       ],
       "title": "Wind speed km/h",
@@ -1776,8 +1875,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "15.34",
-          "value": "15.34"
+          "text": "12.96",
+          "value": "12.96"
         },
         "datasource": {
           "type": "prometheus",
@@ -1827,8 +1926,8 @@
       },
       {
         "current": {
-          "text": "59.612",
-          "value": "59.612"
+          "text": "55.328",
+          "value": "55.328"
         },
         "datasource": {
           "type": "prometheus",
@@ -1850,8 +1949,8 @@
       },
       {
         "current": {
-          "text": "59.61",
-          "value": "59.61"
+          "text": "55.32",
+          "value": "55.32"
         },
         "datasource": {
           "type": "prometheus",
@@ -1881,6 +1980,6 @@
   "timezone": "browser",
   "title": "Weather",
   "uid": "ads7qvx",
-  "version": 4,
+  "version": 5,
   "weekStart": ""
 }
