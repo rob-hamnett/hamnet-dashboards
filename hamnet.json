@@ -1844,7 +1844,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "off"
+              "mode": "dashed+area"
             }
           },
           "mappings": [],
@@ -1856,8 +1856,12 @@
                 "value": 0
               },
               {
+                "color": "orange",
+                "value": 50
+              },
+              {
                 "color": "red",
-                "value": 80
+                "value": 100
               }
             ]
           }
@@ -1919,8 +1923,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "18.14",
-          "value": "18.14"
+          "text": "21.22",
+          "value": "21.22"
         },
         "datasource": {
           "type": "prometheus",
@@ -1970,8 +1974,8 @@
       },
       {
         "current": {
-          "text": "64.652",
-          "value": "64.652"
+          "text": "70.196",
+          "value": "70.196"
         },
         "datasource": {
           "type": "prometheus",
@@ -1993,8 +1997,8 @@
       },
       {
         "current": {
-          "text": "64.65",
-          "value": "64.65"
+          "text": "70.19",
+          "value": "70.19"
         },
         "datasource": {
           "type": "prometheus",
@@ -2024,6 +2028,6 @@
   "timezone": "browser",
   "title": "Weather",
   "uid": "ads7qvx",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
