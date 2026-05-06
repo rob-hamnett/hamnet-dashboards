@@ -712,31 +712,6 @@
                 }
               }
             ]
-          },
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "Rainfall cumulative accumulation",
-                  "Tips"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": true
-                }
-              }
-            ]
           }
         ]
       },
@@ -765,7 +740,7 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "increase(rain_mm_total[$__interval]) > 0",
+          "expr": "increase(rain_mm_total[$__interval]) > 0 or increase(rain_tips_total[$__interval] * .011 ) ",
           "legendFormat": "Tips",
           "range": true,
           "refId": "A"
@@ -776,7 +751,7 @@
             "uid": "cfdp4vfp6uxoge"
           },
           "editorMode": "code",
-          "expr": "(rain_mm_total[30s])",
+          "expr": "(rain_mm_total[30s]) or ((rain_tips_total[30s]) * 0.011)",
           "legendFormat": "Rainfall mm accumulation",
           "range": true,
           "refId": "B"
@@ -796,7 +771,7 @@
             "reduce": {
               "reducer": "sum"
             },
-            "replaceFields": false
+            "replaceFields": true
           }
         }
       ],
@@ -1134,48 +1109,64 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 6,
+        "h": 17,
+        "w": 7,
         "x": 5,
         "y": 17
       },
-      "id": 5,
+      "id": 17,
       "options": {
-        "apparentWindColor": "red",
-        "apparentWindDirField": "wind_dir_deg",
-        "apparentWindSpdField": "",
-        "apparentWindSpdUom": "kts",
-        "bezelColor": "transparent",
-        "dialColor": "#00000000",
-        "headingField": "",
-        "needleColor": "red",
-        "needlePng": "",
-        "needleSvg": "",
-        "needleType": "arrow",
-        "rotationMode": "rotate-needle",
-        "showHeadingValue": false,
-        "showLabels": true,
-        "tailColor": "gray",
-        "textColor": "text",
-        "trueWindColor": "blue",
-        "trueWindDirField": "",
-        "trueWindSpdField": "",
-        "trueWindSpdUom": "kts"
+        "cardinalLabels": "intermediate",
+        "colorPalette": "default",
+        "doesLegendOverlay": false,
+        "legendAnchor": "bottom",
+        "legendPosition": "right",
+        "petalsPer90Deg": 4,
+        "showLegend": true,
+        "speedBucketsCount": 8,
+        "speedBucketsSize": 2,
+        "speedBucketsSizeAuto": true,
+        "tooltipDecimalPlaces": 1,
+        "windSpeedUnit": "kmh",
+        "windroseLabels": "compass"
       },
-      "pluginVersion": "2.1.3",
+      "pluginVersion": "1.2.0",
       "targets": [
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "wind_dir_deg",
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
+          "expr": "sum by (__name__) ((label_set(wind_kmh{},\"__name__\",\"wind_speed\"))) ",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{__name__}}",
+          "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P4169E866C3094E38"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "\nsum by (__name__) ((label_set(wind_dir_deg{},\"__name__\",\"wind_direction\")))",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{__name__}}",
+          "range": true,
+          "refId": "B"
         }
       ],
       "title": "",
-      "type": "oceandatatools-compass-panel"
+      "transformations": [
+        {
+          "id": "merge",
+          "options": {}
+        }
+      ],
+      "type": "operato-windrose-panel"
     },
     {
       "datasource": {
@@ -1257,8 +1248,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 13,
-        "x": 11,
+        "w": 12,
+        "x": 12,
         "y": 17
       },
       "id": 4,
@@ -1387,7 +1378,7 @@
         ]
       },
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 5,
         "x": 0,
         "y": 20
@@ -1463,309 +1454,6 @@
           "color": {
             "mode": "continuous-GrYlRd"
           },
-          "fieldMinMax": false,
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "transparent",
-                  "index": 0,
-                  "text": "No wind"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "noValue": "No wind or sensor malfunction",
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "transparent",
-                "value": 0
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byValue",
-              "options": {
-                "op": "gte",
-                "reducer": "allIsZero",
-                "value": 0
-              }
-            },
-            "properties": []
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 11,
-        "x": 0,
-        "y": 25
-      },
-      "id": 16,
-      "options": {
-        "displayMode": "gradient",
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "maxVizHeight": 300,
-        "minVizHeight": 16,
-        "minVizWidth": 8,
-        "namePlacement": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": true,
-        "sizing": "auto",
-        "valueMode": "color"
-      },
-      "pluginVersion": "12.4.0",
-      "targets": [
-        {
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "(sum by (location) ((wind_dir_deg == 270) - 270))",
-          "hide": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 0) - 0)[$__range])",
-          "instant": false,
-          "legendFormat": "N",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 22.5) - 22.5)[$__range])",
-          "instant": false,
-          "legendFormat": "NNE",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 45) - 45)[$__range])",
-          "instant": false,
-          "legendFormat": "NE",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 67.5) - 67.5)[$__range])",
-          "instant": false,
-          "legendFormat": "ENE",
-          "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 90) - 90)[$__range])",
-          "instant": false,
-          "legendFormat": "E",
-          "range": true,
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 112.5) - 112.5)[$__range])",
-          "instant": false,
-          "legendFormat": "ESE",
-          "range": true,
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 135) - 135)[$__range])",
-          "instant": false,
-          "legendFormat": "SE",
-          "range": true,
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 157.5) - 157.5)[$__range])",
-          "instant": false,
-          "legendFormat": "SSE",
-          "range": true,
-          "refId": "I"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 180) - 180)[$__range])",
-          "instant": false,
-          "legendFormat": "S",
-          "range": true,
-          "refId": "J"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 202.5) - 202.5)[$__range])",
-          "instant": false,
-          "legendFormat": "SSW",
-          "range": true,
-          "refId": "K"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 225) - 225)[$__range])",
-          "instant": false,
-          "legendFormat": "SW",
-          "range": true,
-          "refId": "L"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 247.5) - 247.5)[$__range])",
-          "instant": false,
-          "legendFormat": "WSW",
-          "range": true,
-          "refId": "M"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 270) - 270)[$__range])",
-          "instant": false,
-          "legendFormat": "W",
-          "range": true,
-          "refId": "N"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 292.5) - 292.5)[$__range])",
-          "instant": false,
-          "legendFormat": "WNW",
-          "range": true,
-          "refId": "O"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 315) - 315)[$__range])",
-          "instant": false,
-          "legendFormat": "NW",
-          "range": true,
-          "refId": "P"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cfdp4vfp6uxoge"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count_over_time(sum by (location) ((wind_dir_deg == 337.5) - 337.5)[$__range])",
-          "instant": false,
-          "legendFormat": "NNW",
-          "range": true,
-          "refId": "Q"
-        }
-      ],
-      "title": "Wind Direction",
-      "type": "bargauge"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
-          },
           "custom": {
             "axisPlacement": "auto",
             "fillOpacity": 70,
@@ -1817,8 +1505,8 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 13,
-        "x": 11,
+        "w": 12,
+        "x": 12,
         "y": 25
       },
       "id": 13,
@@ -2068,6 +1756,59 @@
         "uid": "P4169E866C3094E38"
       },
       "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 26
+      },
+      "id": 5,
+      "options": {
+        "apparentWindColor": "red",
+        "apparentWindDirField": "wind_dir_deg",
+        "apparentWindSpdField": "",
+        "apparentWindSpdUom": "kts",
+        "bezelColor": "transparent",
+        "dialColor": "#00000000",
+        "headingField": "",
+        "needleColor": "red",
+        "needlePng": "",
+        "needleSvg": "",
+        "needleType": "arrow",
+        "rotationMode": "rotate-needle",
+        "showHeadingValue": false,
+        "showLabels": true,
+        "tailColor": "gray",
+        "textColor": "text",
+        "trueWindColor": "blue",
+        "trueWindDirField": "",
+        "trueWindSpdField": "",
+        "trueWindSpdUom": "kts"
+      },
+      "pluginVersion": "2.1.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "wind_dir_deg",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "oceandatatools-compass-panel"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P4169E866C3094E38"
+      },
+      "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
@@ -2178,8 +1919,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "13.24",
-          "value": "13.24"
+          "text": "18.14",
+          "value": "18.14"
         },
         "datasource": {
           "type": "prometheus",
@@ -2204,8 +1945,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "100",
-          "value": "100"
+          "text": "",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",
@@ -2229,8 +1970,8 @@
       },
       {
         "current": {
-          "text": "55.832",
-          "value": "55.832"
+          "text": "64.652",
+          "value": "64.652"
         },
         "datasource": {
           "type": "prometheus",
@@ -2252,8 +1993,8 @@
       },
       {
         "current": {
-          "text": "55.83",
-          "value": "55.83"
+          "text": "64.65",
+          "value": "64.65"
         },
         "datasource": {
           "type": "prometheus",
@@ -2276,13 +2017,13 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Weather",
   "uid": "ads7qvx",
-  "version": 5,
+  "version": 1,
   "weekStart": ""
 }
